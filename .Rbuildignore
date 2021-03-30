@@ -1,3 +1,5 @@
+^renv$
+^renv\.lock$
 ^sragData\.Rproj$
 ^\.Rproj\.user$
 ^data-raw$

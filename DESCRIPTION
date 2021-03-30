@@ -15,4 +15,9 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
     ckanr,
-    magrittr
+    data.table,
+    dplyr,
+    lubridate,
+    magrittr,
+    purrr,
+    tibble
