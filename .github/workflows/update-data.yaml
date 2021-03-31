@@ -4,7 +4,7 @@ on:
       - main
       - master
   schedule:
-  - cron: "0 8 * * *"
+  - cron: "0 6 * * 4"
   repository_dispatch:
     types: [update]
 
