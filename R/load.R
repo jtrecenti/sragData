@@ -26,7 +26,10 @@ update_srag_data <- function() {
     purrr::map(purrr::keep, ~.x$mimetype == "text/csv") %>%
     purrr::map_chr(purrr::pluck, 1, "url")
 
-  dia <- lubridate::dmy(basename(arqs[1]))
+  arqs_new <- arqs %>% 
+    stringr::str_subset("INFLUD21",negate = TRUE)
+  
+  dia <- lubridate::dmy(basename(arqs_new))
   semanas_trunca <- 3
 
   # demora
