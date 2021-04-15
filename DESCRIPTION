@@ -20,4 +20,5 @@ Imports:
     lubridate,
     magrittr,
     purrr,
+    stringr,
     tibble
