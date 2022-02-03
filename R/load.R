@@ -12,7 +12,8 @@ pre_process <- function(dados, dia, semanas_trunca) {
       DT_INTERNA <= dia - semanas_trunca * 7
     ) %>%
     dplyr::mutate(idade_cat = cut(NU_IDADE_N, c(0,40,60,70,80,90,120), right = FALSE),
-                  idade_cat2 = cut(NU_IDADE_N, c(0,30,40,60,70,75,85,120), right = FALSE)) %>%
+                  idade_cat2 = cut(NU_IDADE_N, c(0,30,40,60,70,75,85,120), right = FALSE),
+                 idade_cat3 = cut(NU_IDADE_N, c(0,30,40,50,60,70,120), right = FALSE)) %>%
     tibble::as_tibble()
 }
 
