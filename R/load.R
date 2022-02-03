@@ -22,14 +22,18 @@ pre_process <- function(dados, dia, semanas_trunca) {
 update_srag_data <- function() {
   ckanr::ckanr_setup("https://opendatasus.saude.gov.br")
 
-  arqs <- ckanr::package_search("srag 20")$results %>%
-    purrr::map("resources") %>%
-    purrr::map(purrr::keep, ~.x$mimetype == "text/csv") %>%
-    purrr::map_chr(purrr::pluck, 1, "url")
+  arqs <- ckanr::package_search("srag")$results %>%
+  purrr::map("resources") %>%
+  purrr::map(purrr::keep, ~.x$mimetype == "text/csv") %>%
+  purrr::map_chr(purrr::pluck, 1, "url")
 
-  arqs_new <- arqs %>% 
-    stringr::str_subset("INFLUD21",negate = TRUE)
-  
+  arqs <- arqs %>% 
+  stringr::str_subset("INFLUD2",negate = FALSE)
+  arqs_new <- arqs %>%  
+  stringr::str_subset("INFLUD21",negate = FALSE)  %>% 
+  basename() %>% 
+  substring(10)
+
   dia <- lubridate::dmy(basename(arqs_new))
   semanas_trunca <- 3
 
